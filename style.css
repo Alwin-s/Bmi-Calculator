@@ -1,0 +1,130 @@
+.btn:hover {
+  background-color: transparent;
+  color: #000000;
+}
+.btn {
+  color: black;
+  font-family: "Mulish", sans-serif;
+}
+.container{
+  background-color: rgb(229, 229, 229); width: auto; height: 590px; padding:20px;margin-top: 2%;
+}
+.white{
+  background-color: rgb(255, 255, 255); width: auto;height: 400px;
+}
+button {
+  width: 100px;
+}
+p {
+  color: #646464;
+  font-family: "Mulish", sans-serif;
+  font-size: 14px;
+}
+.ageinput {
+  width: 29%;
+  height: 40px;
+}
+.ress {
+  background-color: rgb(91, 26, 26);
+  color: white;
+  width: 140px;
+  height: 40px;
+  font-size: 27px;
+  font-weight: bold;
+  text-align: center;
+}
+.resultsec {
+  background-color: #c6c6c6;
+  padding: 30px;
+  text-align: center;
+  margin-left: 60%;
+  margin-top: -28.5%;
+  width: 380px;
+  height: 295px;
+}
+.color {
+  background-color: yellow;
+  width: 73.88px;
+  height: 4px;
+}
+.dot {
+  background-color: #000000;
+  height: 18px;
+  width: 5px;
+}
+.weights {
+  font-size: 12px;
+  font-family: "Mulish", sans-serif;
+}
+
+::placeholder {
+  color: rgb(255, 255, 255);
+}
+#move {
+  transition: margin-left 1.1s ease-in-out;
+}
+.cvv{
+  position: absolute; margin-top: -2.5%;
+}
+.female{
+  margin-left: -5%;
+}
+.male{
+  margin-left: -4%;
+}
+.agess{
+  margin-left: -4%; display: flex;
+}
+.heightss{
+  margin-left: -4%;
+}
+.weightss{
+  margin-left: -4%;
+}
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:400px){
+.container{
+  width: 100%;
+  
+
+}
+.resultsec{
+  margin-left:5%;
+  margin-top: 5%;
+  height: 340px;
+}
+.white{
+  height: 100%;
+  width: 120%;
+  padding: 20px;
+}
+.bln{
+  margin-left: -10%;
+  
+  
+}
+.cvv{
+  margin-top: -8%;
+}
+.female{
+  margin-left: 60px;
+}
+.male{
+  margin-left: 20px;
+}
+.heightss{
+  margin-left: 1px;
+}
+.weightss{
+  margin-left: 1px;
+}
+}

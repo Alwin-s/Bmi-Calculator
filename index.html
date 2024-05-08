@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <div class="container" >
+  <div class=" d-flex ">
+    <img src="https://www.iciciprulife.com/content/icici-prudential-life-insurance/tools-and-calculators/bmi_assets/images/Component21.svg" alt=""> &nbsp;&nbsp;
+    <h2 style="color: rgb(142, 28, 28); font-size: 50px; margin-top: 1%;">BMI Calculator</h2>
+  <br>
+</div>
+<h3 style="margin-left: 13%; margin-top: -4%; color: rgb(126, 33, 33);">Body mass index</h3>
+
+
+<div class="bln">
+<div class="white">
+  <div style=" margin-top: 2%; padding: 30px;">
+    <div class="row">
+      <div class="col-2 mt-2"> <p>GENDER</p></div>
+      <div class="male col-2" ><button id="male" class="btn btn-outline-primary " onclick="male('male')"><i class="fa-solid fa-mars"></i>&nbsp;&nbsp; MALE</button></div>
+      <div class="female col-2"> <button style="width: 120px;" id="female" class=" btn btn-outline-primary" onclick="male('female')"><i class="fa-solid fa-venus"></i> &nbsp;&nbsp;FEMALE</button></div>
+      
+    </div>
+    <div class="row mt-3">
+      <div class="col-2 mt-2"> <p>AGE</p></div>
+      <div class="agess col-10"><input type="text" name="" id="age" class="ageinput form-control border border-primary rounded " ><p id="validage" style="margin-top: 3.3%;position: absolute;  color: red;font-size: 12px;display: none;font-weight: bold;">Please Enter Valid Age</p></div>
+    </div>
+
+    <!-- cm-section -->
+    <div  class="row mt-4">
+      <div class="col-2 mt-2"><p>HEIGHT</p></div>
+      <div class="heightss col-10 d-flex" >
+        <input type="text" id="heightas" class="ageinput form-control border border-primary" style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem; border-top-right-radius: 0; border-bottom-right-radius: 0;">
+        
+        <div class="input-group mb-2">
+          <div class="input-group-prepend" style="display: flex;">
+            <div class="input-group-text border-primary "  style="border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: .25rem; border-bottom-right-radius: .25rem; height: 40px;">CM</div>
+            <p id="validheight" style="margin-top: 6.3%;margin-left: -30%; position: absolute; color: red;  display: none; font-size: 12px;font-weight: bold;">Please Enter Valid Height</p>
+          </div>
+      </div>
+    </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-2 mt-2"><p>WEIGHT</p></div>
+      <div class="weightss col-10 d-flex">
+        <input type="text" id="weightsa" class="ageinput form-control border border-primary" style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem; border-top-right-radius: 0; border-bottom-right-radius: 0;">
+        
+        <div class="input-group mb-2">
+          <div class="input-group-prepend" style="display: flex;">
+            <div class="input-group-text border-primary "  style="border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: .25rem; border-bottom-right-radius: .25rem; height: 40px;">KG</div>
+            <p id="validweight" style="margin-top: 6.3%; margin-left: -30%; color: red; position: absolute; display: none; font-size: 12px;font-weight: bold;">Please Enter Valid Weight</p>
+          </div>
+      </div>
+    </div>
+    </div>
+
+    <div style="margin-left: 14%; margin-top: 3%;">
+    <button onclick="evaluateExp()" class="btn btn-warning">Calculate</button>
+    <button class="btn btn-danger" onclick="clearevery()">clear</button>
+  </div>
+</div>
+  <!-- result-section -->
+  <section class="resultsec">
+    <div >
+      <p style="color: rgb(76, 76, 76); font-size: 20px; font-family: 'Times New Roman', Times, serif;">Your BMI iS:</p>
+      <input type="text" id="result" class="ress rounded border-0 " readonly placeholder="- -"> 
+      <br><br><br>
+
+      <!-- color-section -->
+      <div class="colors d-flex">
+        <div class="color"></div>&nbsp;
+        <div class="color" style="background-color: rgb(18, 199, 18);"></div>&nbsp;
+        <div class="color" style="background-color: orange;"></div>&nbsp;
+        <div class="color" style="background-color: red;"></div>
+      </div>
+
+      <!-- dot-section -->
+      <div class="cvv">
+        <div class="dot" id="move" ></div>
+        <div class="d-flex">
+        <p class="weights ms-1">Underweight</p>
+        <p class="weights ms-4">Normal</p>
+        <p class="weights ms-4">Overweight</p>
+        <p class="weights" style="margin-left: 12.5%;">Obesity</p>
+        
+      </div>
+      </div>
+
+      <div style="margin-top: 6%; display: none;" id="1">
+        <h2 style="font-size: 21px; color: red; ">Time To Grab A Bite!</h2>
+        <p>By maintaining a healthy weight, you lower your risk of developing serious health problems.</p>
+      </div>
+      <div style="margin-top: 6%; display: none;" id="2">
+        <h2 style="font-size: 21px; color: green; ">Great shape</h2>
+        <p>By maintaining a healthy weight, you lower your risk of developing serious health problems.</p>
+      </div>
+      <div style="margin-top: 6%; display: none;" id="3">
+        <h2 style="font-size: 21px; color: red; ">Time to run!</h2>
+        <p>By maintaining a healthy weight, you lower your risk of developing serious health problems.</p>
+      </div>
+
+    
+
+
+
+
+
+    </div>
+    
+  </section> 
+ 
+
+
+
+
+
+
+
+</div>
+</div>
+
+</div>
+<script>
+  //male-female
+  function male(id){
+    document.getElementById('male').style.backgroundColor=''
+     document.getElementById('female').style.backgroundColor=''
+
+    const res=document.getElementById(id)
+    res.style.backgroundColor="orange" 
+  }
+
+
+// calculation
+function evaluateExp() {
+  const height = document.getElementById("heightas").value;
+  const weight = document.getElementById("weightsa").value;
+  const age=document.getElementById("age").value;
+const bmi=calculateBmi(height,weight);
+
+  const resultField = document.getElementById("result");
+  resultField.value = bmi.toFixed(2);
+
+
+  const reda=document.getElementById("1")
+  const green=document.getElementById("2")
+  const redb=document.getElementById("3")
+  //dot-position
+  const ss=document.getElementById("move")
+  if(bmi >= 0 && bmi <= 18.5){
+    ss.style.marginLeft="14%"
+    resultField.style.backgroundColor="orange"
+    reda.style.display=""
+    redb.style.display="none"
+    green.style.display="none"
+  } else if(bmi > 18.5 && bmi <= 24.9){
+    ss.style.marginLeft="43%"
+    resultField.style.backgroundColor="green";
+    green.style.display=""
+    reda.style.display="none"
+    redb.style.display="none"
+   
+  }else if(bmi> 24.9 && bmi <=29.9){
+    ss.style.marginLeft="73%"
+    resultField.style.backgroundColor="red"
+    redb.style.display=""
+    reda.style.display="none"
+    green.style.display="none"
+  }else if(bmi> 29.9 && bmi <=35){
+    ss.style.marginLeft="105%"
+    resultField.style.backgroundColor="red"
+    redb.style.display=""
+    reda.style.display="none"
+    green.style.display="none"
+  }else if(bmi > 35 && 200){
+    ss.style.marginLeft="117%"
+    resultField.style.backgroundColor="red"
+    redb.style.display=""
+    reda.style.display="none"
+    green.style.display="none"
+  }
+
+  //invalid height/weight
+if(height >300 && weight>200 ){
+  document.getElementById("validheight").style.display=""
+  document.getElementById("validweight").style.display="";
+  document.getElementById("move").style.marginLeft="";
+  const resultField = document.getElementById("result");
+  resultField.value="";
+
+resultField.style.backgroundColor=""
+}else if(height >300){
+  document.getElementById("validheight").style.display="";
+  document.getElementById("move").style.marginLeft="";
+  const resultField = document.getElementById("result");
+  resultField.value="";
+
+resultField.style.backgroundColor=""
+}else if(weight >200){
+  document.getElementById("validweight").style.display="";
+  document.getElementById("move").style.marginLeft="";
+  const resultField = document.getElementById("result");
+  resultField.value="";
+
+resultField.style.backgroundColor=""
+}
+else{
+  document.getElementById("validheight").style.display="none"
+  document.getElementById("validweight").style.display="none"
+  document.getElementById("validage").style.display="none"
+  
+}
+
+
+//empty-inputboxes
+if(height==="" && weight==="" && age==="" ){
+  document.getElementById("validheight").style.display=""
+  document.getElementById("validweight").style.display="";
+  document.getElementById("validage").style.display=""
+  document.getElementById("move").style.marginLeft="";
+  const resultField = document.getElementById("result");
+  resultField.value="";
+resultField.style.backgroundColor=""
+green.style.display="none"
+    reda.style.display="none"
+    redb.style.display="none"
+
+  
+}else if(height === ""){
+  document.getElementById("validheight").style.display=""
+  document.getElementById("move").style.marginLeft="";
+  const resultField = document.getElementById("result");
+  resultField.value="";
+
+resultField.style.backgroundColor=""
+green.style.display="none"
+    reda.style.display="none"
+    redb.style.display="none"
+}else if(weight === ""){
+  document.getElementById("validweight").style.display="";
+  document.getElementById("move").style.marginLeft="";
+  const resultField = document.getElementById("result");
+  resultField.value="";
+  green.style.display="none"
+    reda.style.display="none"
+    redb.style.display="none"
+
+resultField.style.backgroundColor=""
+}else if(age === ""){
+  document.getElementById("validage").style.display="";
+  document.getElementById("move").style.marginLeft="";
+  const resultField = document.getElementById("result");
+  resultField.value="";
+
+resultField.style.backgroundColor=""
+green.style.display="none"
+    reda.style.display="none"
+    redb.style.display="none"
+}
+
+}
+
+//calculatiion-result
+function calculateBmi(height,weight){
+  const heightMeter=height/100;
+
+  const bmi=weight/(heightMeter *heightMeter);
+  return bmi;
+}
+
+
+// clear-input-box
+function clearevery(){
+  const resultField = document.getElementById("result");
+  resultField.value="";
+  const height = document.getElementById("heightas");
+  const weight = document.getElementById("weightsa");
+  height.value="";
+  weight.value=""
+const age=document.getElementById("age");
+age.value="";
+
+document.getElementById('male').style.backgroundColor=''
+document.getElementById('female').style.backgroundColor=''
+
+document.getElementById("move").style.marginLeft="";
+
+resultField.style.backgroundColor=""
+
+
+document.getElementById("validheight").style.display="none"
+  document.getElementById("validweight").style.display="none"
+  document.getElementById("validage").style.display="none"
+  
+  const reda=document.getElementById("1").style.display="none"
+  const green=document.getElementById("2").style.display="none"
+  const redb=document.getElementById("3").style.display="none"
+}
+  
+</script>
+</body>
+</html>
